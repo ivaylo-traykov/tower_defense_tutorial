@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://by5p4s34evsk2"]
+
+[ext_resource type="PackedScene" uid="uid://bxsw2il2oo6ax" path="res://Scenes/Maps/map_1.tscn" id="1_xelbs"]
+[ext_resource type="Texture2D" uid="uid://60q0chgj0m6o" path="res://Assets/UI/Buttons/button_square.png" id="2_opiai"]
+[ext_resource type="Texture2D" uid="uid://vrrfpekyhxcf" path="res://Assets/Environment/Towers/towerDefense_tile249.png" id="3_ocf77"]
+[ext_resource type="Texture2D" uid="uid://du4lnvt768gls" path="res://Assets/Environment/Towers/towerDefense_tile251.png" id="4_8hyvs"]
+
+[node name="GameScene" type="Node"]
+
+[node name="Map1" parent="." instance=ExtResource("1_xelbs")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="BuildBar" type="VBoxContainer" parent="UI/HUD"]
+custom_minimum_size = Vector2(100, 400)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -400.0
+offset_right = 100.0
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="Gun" type="TextureButton" parent="UI/HUD/BuildBar"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_opiai")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/BuildBar/Gun"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/BuildBar/Gun/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_ocf77")
+
+[node name="Missile" type="TextureButton" parent="UI/HUD/BuildBar"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture_normal = ExtResource("2_opiai")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/BuildBar/Missile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/BuildBar/Missile/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_8hyvs")
