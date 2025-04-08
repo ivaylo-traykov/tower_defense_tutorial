@@ -16,7 +16,6 @@ script = ExtResource("1_jejbo")
 script = ExtResource("3_wirq2")
 
 [node name="HUD" type="Control" parent="UI"]
-custom_minimum_size = Vector2(100, 400)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,28 +23,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-mouse_filter = 2
 
-[node name="BuildBar" type="VBoxContainer" parent="UI/HUD"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD"]
 custom_minimum_size = Vector2(100, 400)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -215.0
-offset_right = 100.0
+offset_top = -420.0
+offset_right = 120.0
 grow_vertical = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BuildBar" type="VBoxContainer" parent="UI/HUD/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 15
 
-[node name="Gun" type="TextureButton" parent="UI/HUD/BuildBar" groups=["build_buttons"]]
+[node name="Gun" type="TextureButton" parent="UI/HUD/MarginContainer/BuildBar" groups=["build_buttons"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture_normal = ExtResource("2_opiai")
 stretch_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/BuildBar/Gun"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/MarginContainer/BuildBar/Gun"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,17 +63,17 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/BuildBar/Gun/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/MarginContainer/BuildBar/Gun/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("3_ocf77")
 
-[node name="Missile" type="TextureButton" parent="UI/HUD/BuildBar" groups=["build_buttons"]]
+[node name="Missile" type="TextureButton" parent="UI/HUD/MarginContainer/BuildBar" groups=["build_buttons"]]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture_normal = ExtResource("2_opiai")
 stretch_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/BuildBar/Missile"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/MarginContainer/BuildBar/Missile"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,6 +85,6 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="UI/HUD/BuildBar/Missile/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/MarginContainer/BuildBar/Missile/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("4_8hyvs")

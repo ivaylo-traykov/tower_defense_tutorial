@@ -1,13 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxsw2il2oo6ax"]
+[gd_scene load_steps=18 format=3 uid="uid://bxsw2il2oo6ax"]
 
 [ext_resource type="Texture2D" uid="uid://b0nptd7hr5ehb" path="res://Assets/Environment/Tilesets/terrainTiles_default.png" id="1_8osi0"]
 [ext_resource type="Texture2D" uid="uid://5qteahdmjojf" path="res://Assets/Environment/Props/crateMetal.png" id="2_uh26y"]
 [ext_resource type="Texture2D" uid="uid://c22r4wa78mhof" path="res://Assets/Environment/Props/crateWood.png" id="3_dpkkk"]
 [ext_resource type="Texture2D" uid="uid://ofkiwn238awg" path="res://Assets/Environment/Props/treeBrown_large.png" id="4_gbjnv"]
 [ext_resource type="Texture2D" uid="uid://bntbwbvog3gdv" path="res://Assets/Environment/Props/treeGreen_large.png" id="5_t0spo"]
-[ext_resource type="PackedScene" uid="uid://byvlaiu32tnvb" path="res://Scenes/Turrets/gun_t_1.tscn" id="6_pclwv"]
-[ext_resource type="PackedScene" uid="uid://dytgj5ml8i05c" path="res://Scenes/Turrets/gun_t_2.tscn" id="7_7lkua"]
-[ext_resource type="PackedScene" uid="uid://dmuulsb2ji6v3" path="res://Scenes/Turrets/missile_t_1.tscn" id="8_nfdby"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_atl8v"]
 texture = ExtResource("1_8osi0")
@@ -233,12 +230,3 @@ format = 2
 layer_0/tile_data = PackedInt32Array(458751, 327680, 1, 393216, 131072, 0, 393217, 131072, 0, 393218, 131072, 0, 393219, 131072, 0, 393220, 131072, 0, 393221, 262144, 0, 327685, 65536, 0, 262149, 65536, 0, 196613, 196608, 1, 196614, 131072, 0, 196615, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 458757, 65536, 0, 524293, 327680, 1, 524294, 131072, 0, 524295, 131072, 0, 524296, 131072, 0, 524297, 131072, 0, 524298, 393216, 1, 458762, 65536, 0, 393226, 65536, 0, 327690, 65536, 0, 262154, 65536, 0, 196618, 393216, 0, 196619, 131072, 0, 196620, 131072, 0, 196621, 131072, 0, 196622, 262144, 1, 262158, 65536, 0, 327694, 65536, 0, 393230, 327680, 1, 393231, 131072, 0, 393232, 131072, 0, 393233, 393216, 1, 327697, 65536, 0, 262161, 196608, 1, 262162, 131072, 0, 262163, 131072, 0, 262164, 393216, 1, 131076, 3, 0, 589836, 4, 0, 589825, 3, 0, 655365, 3, 0, 393223, 3, 0, 196609, 4, 0, 524291, 4, 0, 655378, 4, 0, 196623, 4, 0, 131090, 4, 0, 524303, 3, 0, 393228, 3, 0, 65547, 3, 0, 131071, 3, 0, 655368, 2, 0, 589833, 2, 0, 458753, 1, 0, 262153, 1, 0, 262146, 1, 0, 458768, 1, 0, 131088, 1, 0, 655371, 2, 0, 655360, 2, 0, 65543, 2, 0)
 
 [node name="Turrets" type="Node2D" parent="."]
-
-[node name="GunT1" parent="Turrets" instance=ExtResource("6_pclwv")]
-position = Vector2(404, 404)
-
-[node name="GunT2" parent="Turrets" instance=ExtResource("7_7lkua")]
-position = Vector2(740, 287)
-
-[node name="MissileT1" parent="Turrets" instance=ExtResource("8_nfdby")]
-position = Vector2(262, 357)
