@@ -1,10 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxsw2il2oo6ax"]
+[gd_scene load_steps=14 format=3 uid="uid://bxsw2il2oo6ax"]
 
 [ext_resource type="Texture2D" uid="uid://b0nptd7hr5ehb" path="res://Assets/Environment/Tilesets/terrainTiles_default.png" id="1_8osi0"]
-[ext_resource type="Texture2D" uid="uid://5qteahdmjojf" path="res://Assets/Environment/Props/crateMetal.png" id="2_uh26y"]
-[ext_resource type="Texture2D" uid="uid://c22r4wa78mhof" path="res://Assets/Environment/Props/crateWood.png" id="3_dpkkk"]
-[ext_resource type="Texture2D" uid="uid://ofkiwn238awg" path="res://Assets/Environment/Props/treeBrown_large.png" id="4_gbjnv"]
-[ext_resource type="Texture2D" uid="uid://bntbwbvog3gdv" path="res://Assets/Environment/Props/treeGreen_large.png" id="5_t0spo"]
+[ext_resource type="Texture2D" uid="uid://dt4fhbdkt7rpo" path="res://Assets/Environment/Props/atlas_props.png" id="2_ilbhh"]
+[ext_resource type="Texture2D" uid="uid://b01xvvryt5yhy" path="res://Assets/Environment/Tilesets/empty_tile_64x64.png" id="6_7fij5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_atl8v"]
 texture = ExtResource("1_8osi0")
@@ -179,24 +177,18 @@ texture_region_size = Vector2i(64, 64)
 8:3/0 = 0
 9:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ni17b"]
-resource_name = "crateMetal"
-texture = ExtResource("2_uh26y")
-texture_region_size = Vector2i(28, 28)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xmhql"]
-texture = ExtResource("3_dpkkk")
-texture_region_size = Vector2i(28, 28)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lylgx"]
-texture = ExtResource("4_gbjnv")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7efwy"]
+resource_name = "props"
+texture = ExtResource("2_ilbhh")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5paw7"]
-texture = ExtResource("5_t0spo")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3lmoe"]
+texture = ExtResource("6_7fij5")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
@@ -206,10 +198,9 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "roads"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_tro63")
-sources/1 = SubResource("TileSetAtlasSource_ni17b")
-sources/2 = SubResource("TileSetAtlasSource_xmhql")
-sources/3 = SubResource("TileSetAtlasSource_lylgx")
-sources/4 = SubResource("TileSetAtlasSource_5paw7")
+sources/7 = SubResource("TileSetAtlasSource_7efwy")
+sources/9 = SubResource("TileSetAtlasSource_3lmoe")
+tile_proxies/coords_level = [[1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [7, Vector2i(1, 0)], [3, Vector2i(0, 0)], [7, Vector2i(2, 0)], [4, Vector2i(0, 0)], [7, Vector2i(3, 0)], [6, Vector2i(0, 0)], [7, Vector2i(4, 0)]]
 pattern_0 = SubResource("TileMapPattern_lclwe")
 pattern_1 = SubResource("TileMapPattern_2e2c3")
 pattern_2 = SubResource("TileMapPattern_1alry")
@@ -227,6 +218,6 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607
 tile_set = SubResource("TileSet_58hbg")
 rendering_quadrant_size = 64
 format = 2
-layer_0/tile_data = PackedInt32Array(458751, 327680, 1, 393216, 131072, 0, 393217, 131072, 0, 393218, 131072, 0, 393219, 131072, 0, 393220, 131072, 0, 393221, 262144, 0, 327685, 65536, 0, 262149, 65536, 0, 196613, 196608, 1, 196614, 131072, 0, 196615, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 458757, 65536, 0, 524293, 327680, 1, 524294, 131072, 0, 524295, 131072, 0, 524296, 131072, 0, 524297, 131072, 0, 524298, 393216, 1, 458762, 65536, 0, 393226, 65536, 0, 327690, 65536, 0, 262154, 65536, 0, 196618, 393216, 0, 196619, 131072, 0, 196620, 131072, 0, 196621, 131072, 0, 196622, 262144, 1, 262158, 65536, 0, 327694, 65536, 0, 393230, 327680, 1, 393231, 131072, 0, 393232, 131072, 0, 393233, 393216, 1, 327697, 65536, 0, 262161, 196608, 1, 262162, 131072, 0, 262163, 131072, 0, 262164, 393216, 1, 131076, 3, 0, 589836, 4, 0, 589825, 3, 0, 655365, 3, 0, 393223, 3, 0, 196609, 4, 0, 524291, 4, 0, 655378, 4, 0, 196623, 4, 0, 131090, 4, 0, 524303, 3, 0, 393228, 3, 0, 65547, 3, 0, 131071, 3, 0, 655368, 2, 0, 589833, 2, 0, 458753, 1, 0, 262153, 1, 0, 262146, 1, 0, 458768, 1, 0, 131088, 1, 0, 655371, 2, 0, 655360, 2, 0, 65543, 2, 0)
+layer_0/tile_data = PackedInt32Array(458751, 327680, 1, 393216, 131072, 0, 393217, 131072, 0, 393218, 131072, 0, 393219, 131072, 0, 393220, 131072, 0, 393221, 262144, 0, 327685, 65536, 0, 262149, 65536, 0, 196613, 196608, 1, 196614, 131072, 0, 196615, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 458757, 65536, 0, 524293, 327680, 1, 524294, 131072, 0, 524295, 131072, 0, 524296, 131072, 0, 524297, 131072, 0, 524298, 393216, 1, 458762, 65536, 0, 393226, 65536, 0, 327690, 65536, 0, 262154, 65536, 0, 196618, 393216, 0, 196619, 131072, 0, 196620, 131072, 0, 196621, 131072, 0, 196622, 262144, 1, 262158, 65536, 0, 327694, 65536, 0, 393230, 196608, 0, 393231, 131072, 0, 393232, 131072, 0, 393233, 262144, 0, 327697, 65536, 0, 262161, 196608, 1, 262162, 131072, 0, 262163, 131072, 0, 262164, 393216, 1, 655365, 7, 0, 196623, 7, 0, 655368, 65543, 0, 458753, 7, 0, 131088, 196615, 0, 655360, 131079, 0, 458766, 65536, 0, 524302, 65536, 0, 589838, 327680, 1, 589839, 131072, 0, 589840, 131072, 0, 589841, 393216, 1, 458769, 65536, 0, 524305, 65536, 0, 655366, 7, 0, 131075, 196615, 0, 655377, 65543, 0, 786433, 196615, 0, 655362, 131079, 0, 196611, 7, 0, 196612, 7, 0, 262148, 131079, 0, 458756, 196615, 0, 5, 196615, 0, 65542, 7, 0, 131078, 131079, 0, 262150, 65543, 0, 589830, 131079, 0, 7, 7, 0, 786439, 196615, 0, 131080, 196615, 0, 393224, 65543, 0, 65546, 7, 0, 131082, 131079, 0, 524300, 196615, 0, 655372, 196615, 0, 655374, 131079, 0, 262159, 131079, 0, 458767, 196615, 0, 720912, 131079, 0, 65555, 131079, 0, 655379, 65543, 0, 20, 7, 0)
 
 [node name="Turrets" type="Node2D" parent="."]
