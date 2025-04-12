@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 
-var speed = 50
+var speed = 150
 
 func _physics_process(delta):
 	move(delta)
