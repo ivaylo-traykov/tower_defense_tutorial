@@ -16,8 +16,6 @@ func _ready():
 	for x in get_tree().get_nodes_in_group("build_buttons"):
 		x.connect("pressed", Callable(self, "initiate_build_mode").bind(x.get_name()))
 
-	start_new_wave()
-
 func _process(delta):
 	if build_mode:
 		update_towe_preview()

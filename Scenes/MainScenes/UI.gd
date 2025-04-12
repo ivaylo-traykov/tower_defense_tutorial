@@ -26,3 +26,27 @@ func update_tower_preview(new_position, color):
 	if get_node("TowerPreview/DragTower").modulate != Color(color):
 		get_node("TowerPreview/DragTower").modulate = Color(color)
 		get_node("TowerPreview/Sprite2D").modulate = Color(color)
+
+##
+## Game Controls
+##
+func _on_pause_play_pressed():
+	var game_scene = get_parent()
+	
+	if game_scene.build_mode:
+		game_scene.cancel_build_mode()
+	
+	if game_scene.current_wave == 0:
+		game_scene.current_wave += 1
+		game_scene.start_new_wave()
+	else:
+		get_tree().paused = !get_tree().paused
+
+
+func _on_speed_up_pressed():
+	if Engine.get_time_scale() == 1.0:
+		Engine.set_time_scale(2.0)
+	else:
+		Engine.set_time_scale(1.0)
+
+		
