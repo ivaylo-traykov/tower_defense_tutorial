@@ -4,17 +4,22 @@ class_name Turret
 var enemy_array = []
 var built = false
 var enemy = null
+var ready_to_fire = true
+var type
 
 
 func _ready():
 	if built:
-		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * GameData.tower_data[self.get_name()]["range"]
+		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * GameData.tower_data[type]["range"]
 
 
 func _physics_process(delta):
 	if enemy_array.size() > 0 and built:
 		select_enemy()
 		turn()
+		if ready_to_fire:
+			fire()
+		
 
 
 func select_enemy():
@@ -31,6 +36,13 @@ func select_enemy():
 
 func turn():
 	get_node("Turret").look_at(enemy.position)
+
+
+func fire():
+	ready_to_fire = false
+	enemy.on_hit(GameData.tower_data[type]["damage"])
+	await(get_tree().create_timer(GameData.tower_data[type]["rof"]).timeout)
+	ready_to_fire = true
 
 
 func _on_range_body_entered(body):
