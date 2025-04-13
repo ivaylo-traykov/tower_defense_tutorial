@@ -28,10 +28,10 @@ func _unhandled_input(event):
 		verify_and_build()
 		cancel_build_mode()
 
-
 ##
-## Wave functions
+## Wave Functions
 ##
+#region Wave functions
 func start_new_wave():
 	var wave_data = retrieve_wave_data()
 	await(get_tree().create_timer(0.2).timeout)
@@ -50,11 +50,12 @@ func spawn_enemies(wave_data):
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
 		map_node.get_node("Path").add_child(new_enemy, true)
 		await(get_tree().create_timer(i[1]).timeout)
-
+#endregion
 
 ##
 ## Build Functions
 ##
+#region Build Functions
 func initiate_build_mode(tower_type):
 	if build_mode:
 		cancel_build_mode()
@@ -89,5 +90,7 @@ func verify_and_build():
 	if build_valid:
 		var new_tower = load("res://Scenes/Turrets/" + build_type + ".tscn").instantiate()
 		new_tower.position = build_location
+		new_tower.built = true
 		map_node.get_node("Turrets").add_child(new_tower, true)
 		map_node.get_node("TowerExclusion").set_cell(0, build_tile, 9, Vector2i(0,0))
+#endregion
