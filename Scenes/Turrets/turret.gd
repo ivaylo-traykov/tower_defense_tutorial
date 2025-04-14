@@ -6,6 +6,7 @@ var built = false
 var enemy = null
 var ready_to_fire = true
 var type
+var category
 
 
 func _ready():
@@ -16,7 +17,8 @@ func _ready():
 func _physics_process(delta):
 	if enemy_array.size() > 0 and built:
 		select_enemy()
-		turn()
+		if not get_node("AnimationPlayer").is_playing():
+			turn()
 		if ready_to_fire:
 			fire()
 		
@@ -40,9 +42,15 @@ func turn():
 
 func fire():
 	ready_to_fire = false
+	if category == "Projectile":
+		fire_gun()
 	enemy.on_hit(GameData.tower_data[type]["damage"])
 	await(get_tree().create_timer(GameData.tower_data[type]["rof"]).timeout)
 	ready_to_fire = true
+
+
+func fire_gun():
+	get_node("AnimationPlayer").play("Fire")
 
 
 func _on_range_body_entered(body):

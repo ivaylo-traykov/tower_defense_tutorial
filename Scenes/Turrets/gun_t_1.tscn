@@ -1,10 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://byvlaiu32tnvb"]
+[gd_scene load_steps=8 format=3 uid="uid://byvlaiu32tnvb"]
 
 [ext_resource type="Texture2D" uid="uid://dcoftj3kbyfmq" path="res://Assets/Environment/Towers/towerDefense_tile181.png" id="1_4get4"]
 [ext_resource type="Script" path="res://Scenes/Turrets/gun_t_1.gd" id="1_dqajx"]
 [ext_resource type="Texture2D" uid="uid://vrrfpekyhxcf" path="res://Assets/Environment/Towers/towerDefense_tile249.png" id="2_rb8g4"]
+[ext_resource type="Texture2D" uid="uid://drn4hcolex4d1" path="res://Assets/Effects/towerDefense_tile297.png" id="4_6k3gi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4biu8"]
+
+[sub_resource type="Animation" id="Animation_y07ib"]
+resource_name = "Fire"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/MuzzleFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7pvx"]
+_data = {
+"Fire": SubResource("Animation_y07ib")
+}
 
 [node name="GunT1" type="Node2D"]
 script = ExtResource("1_dqajx")
@@ -19,12 +42,23 @@ offset = Vector2(12, 0)
 [node name="Muzzle" type="Marker2D" parent="Turret"]
 position = Vector2(43, 0)
 
+[node name="MuzzleFlash" type="Sprite2D" parent="Turret"]
+visible = false
+position = Vector2(53, 0)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_6k3gi")
+
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_4biu8")
 one_way_collision_margin = 0.0
 debug_color = Color(0, 0.619608, 0.568627, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l7pvx")
+}
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
