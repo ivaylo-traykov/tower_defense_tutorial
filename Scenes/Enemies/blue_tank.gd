@@ -1,9 +1,11 @@
 extends PathFollow2D
 
+signal base_damage(damage)
 
 var speed = 150
 var hp = 60
 var projectile_imapct = preload("res://Scenes/SupportScenes/projectile_impact.tscn")
+var damage = 21
 
 @onready var health_bar = $HealthBar
 @onready var impact_area = $Impact
@@ -16,6 +18,9 @@ func _ready():
 	health_bar.set_as_top_level(true)
 
 func _physics_process(delta):
+	if get_progress_ratio() == 1.0:
+		base_damage.emit(damage)
+		queue_free()
 	move(delta)
 
 

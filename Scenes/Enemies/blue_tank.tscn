@@ -9,6 +9,7 @@
 size = Vector2(42.9661, 39.6427)
 
 [node name="BlueTank" type="PathFollow2D"]
+loop = false
 script = ExtResource("1_5k60y")
 
 [node name="RigidBody2D" type="CharacterBody2D" parent="."]
